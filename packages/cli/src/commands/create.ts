@@ -2,18 +2,13 @@ import chalk from "chalk";
 import { mkdir, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 
-interface InitOptions {
+interface CreateOptions {
   template: string;
 }
 
-/**
- * Initialize a new web extension project
- * @param name Project name
- * @param options Command options
- */
-export async function initCommand(
+export async function createCommand(
   name: string = "my-extension",
-  options: InitOptions
+  options: CreateOptions
 ): Promise<void> {
   const projectDir = join(process.cwd(), name);
 

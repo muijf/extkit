@@ -1,9 +1,11 @@
-import { defineConfig } from "@extkit/core";
+import { config } from "@extkit/core";
 import { chrome } from "@extkit/chrome";
 import { react } from "@extkit/react";
 import { tailwind } from "@extkit/tailwind";
+import { vite } from "@extkit/vite";
 
-export default defineConfig(({ mode: _mode }) => ({
+export default config(({ mode: _mode }) => ({
+  builder: vite({}),
   browsers: [
     chrome({
       manifest: {

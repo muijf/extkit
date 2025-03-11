@@ -7,7 +7,9 @@ export interface FirefoxBrowser extends Browser {
   manifest: Manifest;
 }
 
-export function firefox(firefoxBrowser: Omit<FirefoxBrowser, "__package">) {
+export function firefox(
+  firefoxBrowser: Omit<FirefoxBrowser, "__package">
+): FirefoxBrowser {
   return {
     __package: "@extkit/firefox" as const,
     ...firefoxBrowser,

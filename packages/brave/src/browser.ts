@@ -7,7 +7,9 @@ export interface BraveBrowser extends Browser {
   manifest: Manifest;
 }
 
-export function brave(braveBrowser: Omit<BraveBrowser, "__package">) {
+export function brave(
+  braveBrowser: Omit<BraveBrowser, "__package">
+): BraveBrowser {
   return {
     __package: "@extkit/brave" as const,
     ...braveBrowser,

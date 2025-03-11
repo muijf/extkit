@@ -10,6 +10,7 @@
     "@extkit/core": "workspace:*",
     "@extkit/cli": "workspace:*",
     "@extkit/react": "workspace:*",
-    "@extkit/tailwind": "workspace:*"
+    "@extkit/tailwind": "workspace:*",
+    "@extkit/vite": "workspace:*"
   }
 }

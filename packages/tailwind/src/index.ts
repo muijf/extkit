@@ -4,7 +4,9 @@ export interface TailwindPlugin extends Plugin {
   readonly __package: "@extkit/tailwind";
 }
 
-export function tailwind(tailwindPlugin: Omit<TailwindPlugin, "__package">) {
+export function tailwind(
+  tailwindPlugin: Omit<TailwindPlugin, "__package">
+): TailwindPlugin {
   return {
     __package: "@extkit/tailwind" as const,
     ...tailwindPlugin,

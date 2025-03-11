@@ -1,0 +1,9 @@
+{
+  "name": "@extkit/i18n",
+  "version": "0.1.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@extkit/core": "workspace:*"
+  }
+}

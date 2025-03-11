@@ -7,7 +7,9 @@ export interface ChromeBrowser extends Browser {
   manifest: Manifest;
 }
 
-export function chrome(chromeBrowser: Omit<ChromeBrowser, "__package">) {
+export function chrome(
+  chromeBrowser: Omit<ChromeBrowser, "__package">
+): ChromeBrowser {
   return {
     __package: "@extkit/chrome" as const,
     ...chromeBrowser,

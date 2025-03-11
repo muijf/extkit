@@ -7,7 +7,9 @@ export interface OperaBrowser extends Browser {
   manifest: Manifest;
 }
 
-export function opera(operaBrowser: Omit<OperaBrowser, "__package">) {
+export function opera(
+  operaBrowser: Omit<OperaBrowser, "__package">
+): OperaBrowser {
   return {
     __package: "@extkit/opera" as const,
     ...operaBrowser,
