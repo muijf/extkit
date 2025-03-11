@@ -1,0 +1,7 @@
+{
+  "name": "@extkit/core",
+  "version": "0.1.0",
+  "description": "Core package for web extension ecosystem toolkit",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts"
+}

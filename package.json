@@ -2,7 +2,8 @@
   "name": "extkit",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
   "devDependencies": {
     "typescript": "^5.0.0"

@@ -1,0 +1,7 @@
+{
+  "name": "@extkit/opera",
+  "version": "0.1.0",
+  "dependencies": {
+    "@extkit/core": "workspace:*"
+  }
+}

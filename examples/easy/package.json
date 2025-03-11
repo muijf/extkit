@@ -1,0 +1,13 @@
+{
+  "name": "easy-example",
+  "private": true,
+  "scripts": {
+    "build": "extkit build --browser chrome",
+    "dev": "extkit dev --browser chrome"
+  },
+  "dependencies": {
+    "@extkit/chrome": "workspace:*",
+    "@extkit/core": "workspace:*",
+    "@extkit/cli": "workspace:*"
+  }
+}

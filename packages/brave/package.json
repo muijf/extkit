@@ -1,0 +1,7 @@
+{
+  "name": "@extkit/brave",
+  "version": "0.1.0",
+  "dependencies": {
+    "@extkit/core": "workspace:*"
+  }
+}

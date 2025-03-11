@@ -1,3 +1,24 @@
 {
-  "name": "@extkit/cli"
+  "name": "@extkit/cli",
+  "version": "0.1.0",
+  "description": "CLI tool for web extension ecosystem toolkit",
+  "type": "module",
+  "bin": {
+    "extkit": "./dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "bun build ./src/index.ts --target node --outdir dist",
+    "dev": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^5.3.0"
+  },
+  "devDependencies": {
+    "bun-types": "latest",
+    "@types/node": "^20.10.0"
+  }
 }
