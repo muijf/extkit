@@ -13,6 +13,8 @@
         "@extkit/chrome": "workspace:*",
         "@extkit/cli": "workspace:*",
         "@extkit/core": "workspace:*",
+        "@extkit/react": "workspace:*",
+        "@extkit/tailwind": "workspace:*",
       },
     },
     "packages/brave": {
@@ -50,6 +52,9 @@
     "packages/core": {
       "name": "@extkit/core",
       "version": "0.1.0",
+      "dependencies": {
+        "@extkit/utils": "workspace:*",
+      },
     },
     "packages/firefox": {
       "name": "@extkit/firefox",
@@ -71,6 +76,9 @@
     "packages/react": {
       "name": "@extkit/react",
       "version": "0.1.0",
+      "dependencies": {
+        "@extkit/core": "workspace:*",
+      },
     },
     "packages/safari": {
       "name": "@extkit/safari",
@@ -78,6 +86,17 @@
       "dependencies": {
         "@extkit/core": "workspace:*",
       },
+    },
+    "packages/tailwind": {
+      "name": "@extkit/tailwind",
+      "version": "0.1.0",
+      "dependencies": {
+        "@extkit/core": "workspace:*",
+      },
+    },
+    "packages/utils": {
+      "name": "@extkit/utils",
+      "version": "0.1.0",
     },
   },
   "packages": {
@@ -96,6 +115,10 @@
     "@extkit/react": ["@extkit/react@workspace:packages/react"],
 
     "@extkit/safari": ["@extkit/safari@workspace:packages/safari"],
+
+    "@extkit/tailwind": ["@extkit/tailwind@workspace:packages/tailwind"],
+
+    "@extkit/utils": ["@extkit/utils@workspace:packages/utils"],
 
     "@types/chrome": ["@types/chrome@0.0.308", "", { "dependencies": { "@types/filesystem": "*", "@types/har-format": "*" } }, "sha512-H5VF01xhUQHwNy8Hfu4khwHJncyckw7IEricOqrIBan8gsDXnBu5A3qJ15him8Kx+YY6lNkrXZGJajEUSGRsRQ=="],
 

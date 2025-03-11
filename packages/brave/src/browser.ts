@@ -9,7 +9,7 @@ export interface BraveBrowser extends Browser {
 
 export function brave(braveBrowser: Omit<BraveBrowser, "__package">) {
   return {
-    __package: "@extkit/brave",
+    __package: "@extkit/brave" as const,
     ...braveBrowser,
   };
 }

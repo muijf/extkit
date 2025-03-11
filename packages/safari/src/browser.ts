@@ -9,7 +9,7 @@ export interface SafariBrowser extends Browser {
 
 export function safari(safariBrowser: Omit<SafariBrowser, "__package">) {
   return {
-    __package: "@extkit/safari",
+    __package: "@extkit/safari" as const,
     ...safariBrowser,
   };
 }

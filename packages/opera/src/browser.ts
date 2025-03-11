@@ -9,7 +9,7 @@ export interface OperaBrowser extends Browser {
 
 export function opera(operaBrowser: Omit<OperaBrowser, "__package">) {
   return {
-    __package: "@extkit/opera",
+    __package: "@extkit/opera" as const,
     ...operaBrowser,
   };
 }

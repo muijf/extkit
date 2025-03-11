@@ -9,7 +9,7 @@ export interface FirefoxBrowser extends Browser {
 
 export function firefox(firefoxBrowser: Omit<FirefoxBrowser, "__package">) {
   return {
-    __package: "@extkit/firefox",
+    __package: "@extkit/firefox" as const,
     ...firefoxBrowser,
   };
 }

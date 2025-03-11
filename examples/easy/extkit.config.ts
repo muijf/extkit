@@ -1,7 +1,9 @@
 import { defineConfig } from "@extkit/core";
 import { chrome } from "@extkit/chrome";
+import { react } from "@extkit/react";
+import { tailwind } from "@extkit/tailwind";
 
-export default defineConfig({
+export default defineConfig(({ mode: _mode }) => ({
   browsers: [
     chrome({
       manifest: {
@@ -11,4 +13,5 @@ export default defineConfig({
       },
     }),
   ],
-});
+  plugins: [react({}), tailwind({})],
+}));

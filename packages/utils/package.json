@@ -1,0 +1,7 @@
+{
+  "name": "@extkit/utils",
+  "version": "0.1.0",
+  "description": "Utils for Extkit",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts"
+}

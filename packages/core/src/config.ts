@@ -1,20 +1,14 @@
+import type { NonEmptyArray } from "@extkit/utils";
+import type { Browser } from "./browser";
+import type { Plugin } from "./plugin";
+
 export interface Config {
-  browsers: Omit<Browser, "__package">[];
-}
-
-export type BrowserPackage =
-  | "@extkit/chrome"
-  | "@extkit/firefox"
-  | "@extkit/brave"
-  | "@extkit/opera"
-  | "@extkit/safari";
-
-export interface Browser {
-  readonly __package: BrowserPackage;
+  browsers: NonEmptyArray<Omit<Browser, "__package">>;
+  plugins?: Plugin[];
 }
 
 export interface Context {
-  mode: "development" | "production";
+  mode: "dev" | "prod";
 }
 
 export function defineConfig(config: Config | ((ctx: Context) => Config)) {
