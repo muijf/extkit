@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@cfgkit/core": "0.0.0-dev-20250312223043",
+    "@cfgkit/typescript": "0.0.0-dev-20250312223043",
     "@extkit/core": "workspace:*",
     "@swc/core": "^1.11.8",
     "chalk": "^5.3.0",

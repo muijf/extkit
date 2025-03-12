@@ -12,6 +12,15 @@ export default config(({ mode: _mode }) => ({
         manifest_version: 3,
         name: "Easy Example",
         version: "0.1.0",
+        content_scripts: [
+          {
+            matches: ["<all_urls>"],
+            js: ["src/content.ts"],
+          },
+        ],
+        action: {
+          default_popup: "src/popup.html",
+        },
       },
     }),
   ],

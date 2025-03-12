@@ -1,14 +1,20 @@
-import { type Plugin } from "@extkit/core";
+import { type Config, type Plugin, type PluginFactory } from "@extkit/core";
 
-export interface MessagingPlugin extends Plugin {
+export interface MessagingPlugin<C extends Config<C>> extends Plugin<C> {
   readonly __package: "@extkit/messaging";
 }
 
-export function messaging(
-  messagingPlugin: Omit<MessagingPlugin, "__package">
-): MessagingPlugin {
-  return {
+export type MessagingPluginFactory<C extends Config<C>> = PluginFactory<
+  MessagingPlugin<C>,
+  C
+>;
+
+export function messaging<C extends Config<C>>(
+  messagingPlugin: Omit<MessagingPlugin<C>, "__package" | "__core">
+): MessagingPluginFactory<C> {
+  return (config) => ({
     __package: "@extkit/messaging" as const,
+    __core: { config },
     ...messagingPlugin,
-  };
+  });
 }

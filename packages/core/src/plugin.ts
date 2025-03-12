@@ -1,3 +1,5 @@
+import type { Config } from ".";
+
 export type PluginPackage =
   | "@extkit/tailwind"
   | "@extkit/react"
@@ -7,6 +9,14 @@ export type PluginPackage =
   | "@extkit/monkit"
   | string;
 
-export interface Plugin {
+export interface Plugin<C extends Config<C>> {
   readonly __package: PluginPackage;
+
+  readonly __core: {
+    config: C;
+  };
 }
+
+export type PluginFactory<P extends Plugin<C>, C extends Config<C>> = (
+  config: C
+) => P;

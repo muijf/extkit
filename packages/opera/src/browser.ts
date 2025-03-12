@@ -1,17 +1,23 @@
-import { type Browser } from "@extkit/core";
+import { type Browser, type BrowserFactory, type Config } from "@extkit/core";
 import { type Manifest } from ".";
 
-export interface OperaBrowser extends Browser {
+export interface OperaBrowser<C extends Config<C>> extends Browser<C> {
   readonly __package: "@extkit/opera";
 
-  manifest: Manifest;
+  manifest: Manifest<C>;
 }
 
-export function opera(
-  operaBrowser: Omit<OperaBrowser, "__package">
-): OperaBrowser {
-  return {
+export type OperaBrowserFactory<C extends Config<C>> = BrowserFactory<
+  OperaBrowser<C>,
+  C
+>;
+
+export function opera<C extends Config<C>>(
+  operaBrowser: Omit<OperaBrowser<C>, "__package" | "__core">
+): OperaBrowserFactory<C> {
+  return (config) => ({
     __package: "@extkit/opera" as const,
+    __core: { config },
     ...operaBrowser,
-  };
+  });
 }

@@ -1,17 +1,23 @@
-import { type Browser } from "@extkit/core";
+import { type Browser, type BrowserFactory, type Config } from "@extkit/core";
 import { type Manifest } from ".";
 
-export interface ChromeBrowser extends Browser {
+export interface ChromeBrowser<C extends Config<C>> extends Browser<C> {
   readonly __package: "@extkit/chrome";
 
-  manifest: Manifest;
+  manifest: Omit<Manifest<C>, "__core">;
 }
 
-export function chrome(
-  chromeBrowser: Omit<ChromeBrowser, "__package">
-): ChromeBrowser {
-  return {
+export type ChromeBrowserFactory<C extends Config<C>> = BrowserFactory<
+  ChromeBrowser<C>,
+  C
+>;
+
+export function chrome<C extends Config<C>>(
+  chromeBrowser: Omit<ChromeBrowser<C>, "__package" | "__core">
+): ChromeBrowserFactory<C> {
+  return (config) => ({
     __package: "@extkit/chrome" as const,
+    __core: { config },
     ...chromeBrowser,
-  };
+  });
 }
