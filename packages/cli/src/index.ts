@@ -4,7 +4,6 @@ import chalk from "chalk";
 import { createCommand } from "./commands/create";
 import { devCommand } from "./commands/dev";
 import { version } from "../package.json";
-
 const program = new Command();
 
 program
@@ -30,7 +29,7 @@ program
   .description("Start development mode and load extkit.config.ts")
   .option("--config <string>", "Path to the extkit.config.ts file")
   .option("--cwd <string>", "Current working directory")
-  .action((options: { config?: string; cwd?: string }) => {
+  .action(async (options: { config?: string; cwd?: string }) => {
     devCommand(options.config, options.cwd).catch((error) => {
       console.error(chalk.red("Error:"), error.message);
       process.exit(1);

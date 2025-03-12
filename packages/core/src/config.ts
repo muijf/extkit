@@ -1,12 +1,12 @@
-import type { NonEmptyArray } from "@extkit/utils";
+import type { OneOrArray, OneOrNonEmptyArray } from "@extkit/utils";
 import type { Browser } from "./browser";
 import type { Plugin } from "./plugin";
 import type { Builder } from "./builder";
 
 export interface Config {
   builder: Builder;
-  browsers: NonEmptyArray<Omit<Browser, "__package">>;
-  plugins?: Plugin[];
+  browsers: OneOrNonEmptyArray<Omit<Browser, "__package">>;
+  plugins?: OneOrArray<Plugin>;
 }
 
 export interface Context {
