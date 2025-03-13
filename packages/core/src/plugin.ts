@@ -1,4 +1,4 @@
-import type { Config } from ".";
+import type { Config, Browser } from ".";
 
 export type PluginPackage =
   | "@extkit/tailwind"
@@ -9,7 +9,11 @@ export type PluginPackage =
   | "@extkit/monkit"
   | string;
 
-export interface Plugin<C extends Config<C>> {
+export interface Plugin<
+  C extends Config<C, B, P>,
+  B extends Browser<C, B, P>,
+  P extends Plugin<C, B, P>
+> {
   readonly __package: PluginPackage;
 
   readonly __core: {
@@ -17,6 +21,8 @@ export interface Plugin<C extends Config<C>> {
   };
 }
 
-export type PluginFactory<P extends Plugin<C>, C extends Config<C>> = (
-  config: C
-) => P;
+export type PluginFactory<
+  P extends Plugin<C, B, P>,
+  C extends Config<C, B, P>,
+  B extends Browser<C, B, P>
+> = (config: C) => P;

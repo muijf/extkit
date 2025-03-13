@@ -1,18 +1,18 @@
 import { type Browser, type BrowserFactory, type Config } from "@extkit/core";
 import { type Manifest } from ".";
 
-export interface BraveBrowser<C extends Config<C>> extends Browser<C> {
+export interface BraveBrowser<C extends Config> extends Browser<C> {
   readonly __package: "@extkit/brave";
 
   manifest: Manifest<C>;
 }
 
-export type BraveBrowserFactory<C extends Config<C>> = BrowserFactory<
+export type BraveBrowserFactory<C extends Config> = BrowserFactory<
   BraveBrowser<C>,
   C
 >;
 
-export function brave<C extends Config<C>>(
+export function brave<C extends Config>(
   braveBrowser: Omit<BraveBrowser<C>, "__package" | "__core">
 ): BraveBrowserFactory<C> {
   return (config) => ({

@@ -1,4 +1,4 @@
-import type { Config } from ".";
+import type { Config, Plugin } from ".";
 
 export type BrowserPackage =
   | "@extkit/chrome"
@@ -8,7 +8,11 @@ export type BrowserPackage =
   | "@extkit/safari"
   | string;
 
-export interface Browser<C extends Config<C>> {
+export interface Browser<
+  C extends Config<C, B, P>,
+  B extends Browser<C, B, P>,
+  P extends Plugin<C, B, P>
+> {
   readonly __package: BrowserPackage;
 
   readonly __core: {
@@ -16,6 +20,8 @@ export interface Browser<C extends Config<C>> {
   };
 }
 
-export type BrowserFactory<B extends Browser<C>, C extends Config<C>> = (
-  config: C
-) => B;
+export type BrowserFactory<
+  B extends Browser<C, B, P>,
+  C extends Config<C, B, P>,
+  P extends Plugin<C, B, P>
+> = (config: C) => B;
